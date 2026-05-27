@@ -1,4 +1,5 @@
-#include "../main.cpp"
+#include "boiling.cpp"
+
 
 vector<int> dijkstra(const int &start, const int &n, const vector<vector<pair<int, int>>> &links) {
   vector<int> dist(n, INT32_MAX);

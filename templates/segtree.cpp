@@ -1,4 +1,5 @@
-#include "../main.cpp"
+#include "boiling.cpp"
+
 
 struct sumtree {
   u64 N;

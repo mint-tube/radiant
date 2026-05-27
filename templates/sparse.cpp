@@ -1,4 +1,5 @@
-#include "../main.cpp"
+#include "boiling.cpp"
+
 
 template <typename T, T(*F)(T, T)>
 struct sparse {

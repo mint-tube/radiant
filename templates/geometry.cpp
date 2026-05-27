@@ -1,4 +1,5 @@
-#include "../main.cpp"
+#include "boiling.cpp"
+
 
 struct point {
   int x, y;

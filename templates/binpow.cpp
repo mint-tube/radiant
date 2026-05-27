@@ -1,4 +1,5 @@
-#include "../main.cpp"
+#include "boiling.cpp"
+
 
 i64 binpow(i64 a, i64 b) {
   i64 rv;
