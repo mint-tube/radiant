@@ -1,6 +1,33 @@
 {
   "files.exclude": {
-    "a.out": true,
-    ".vscode": true
+    ".vscode": false
+  },
+  "files.associations": {
+    "*.json": "jsonc",
+    "*.desktop": "ini",
+    "*.sln": "vb",
+    "*.ac": "shellscript",
+    "*.am": "makefile",
+    "*.s": "asm-collection",
+    "*.make": "makefile",
+    "config": "properties",
+    "Caddyfile": "caddyfile",
+    "*.kts": "kotlin",
+    "*.ps1": "shellscript",
+    "*.pbxproj": "go",
+    "*.rc": "csharp",
+    "*.tcc": "objective-cpp",
+    "*.ll": "llvm",
+    "*.llvm": "llvm",
+    "*.asm": "powershell",
+    "scoped_allocator": "cpp",
+    "ratio": "cpp",
+    "any": "cpp",
+    "charconv": "cpp",
+    "random": "cpp",
+    "cmath": "cpp",
+    "complex": "cpp",
+    "iostream": "cpp",
+    "ostream": "cpp"
   }
 }

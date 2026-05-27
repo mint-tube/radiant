@@ -1,11 +1,11 @@
 #include "../main.cpp"
 
 template <typename T, T(*F)(T, T)>
-struct sparsetable {
+struct sparse {
   int n;
   vector<vector<T>> layers;
 
-  sparsetable(const vector<T> &a, const F &f) : func(f) {
+  sparse(const vector<T> &a, const F &f) : func(f) {
     n = static_cast<int>(a.size());
     int max_log = 32 - __builtin_clz(n);
     layers.resize(max_log);
