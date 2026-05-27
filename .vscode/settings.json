@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    "a.out": true,
+    ".vscode": true
+  }
+}
