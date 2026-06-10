@@ -1,27 +1,25 @@
 #include "boiling.cpp"
 
 
-template <typename T, T(*F)(T, T)>
-struct sparse {
-  int n;
-  vector<vector<T>> layers;
+struct minsparse {
+  u64 n;
+  vector<vector<i64>> layers;
 
-  sparse(const vector<T> &a, const F &f) : func(f) {
-    n = static_cast<int>(a.size());
-    int max_log = 32 - __builtin_clz(n);
-    layers.resize(max_log);
+  minsparse(const vector<i64> &a) {
+    n = a.size();
+    u64 max_lvl = 32 - __countl_zero(n);
+    layers.resize(max_lvl);
     layers[0] = a;
-    for (int j = 1; j < max_log; j++) {
+    for (u64 j = 1; j < max_lvl; j++) {
       layers[j].resize(n - (1 << j) + 1);
-      for (int i = 0; i <= n - (1 << j); i++) {
-        layers[j][i] = func(layers[j - 1][i], layers[j - 1][i + (1 << (j - 1))]);
+      for (u64 i = 0; i <= n - (1 << j); i++) {
+        layers[j][i] = min(layers[j - 1][i], layers[j - 1][i + (1 << (j - 1))]);
       }
     }
   }
 
-  T get(int from, int to) const {
-    assert(0 <= from && from <= to && to <= n - 1);
-    int lg = 32 - __builtin_clz(to - from + 1) - 1;
-    return func(layers[lg][from], layers[lg][to - (1 << lg) + 1]);
+  i64 get(u64 from, u64 to) const {
+    u64 lvl = 32 - __countl_zero(to - from + 1) - 1;
+    return min(layers[lvl][from], layers[lvl][to - (1 << lvl) + 1]);
   }
 };

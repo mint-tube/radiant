@@ -1,17 +1,10 @@
 #include "boiling.cpp"
 
-
-// floor division for integers, b > 0
-int floor_div(int a, int b) {
-  if (a >= 0) return a / b;
-  return (a - b + 1) / b;
-}
-
 i64 binpow(i64 a, i64 b) {
-  i64 rv;
+  i64 rv = 1;
   while (b > 0) {
-    if (b & 1) rv *= a;
-    rv *= rv;
+    if (b & 1) (rv *= a) % mod;
+    a = (a * a) % mod;
     b >>= 1;
   }
   return rv;

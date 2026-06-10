@@ -17,13 +17,13 @@ struct sumtree {
 
   void push(const u64 i, u64 il, u64 ir) {
     i64 &diff = lazy[i];
-    if (diff == 0) [[likely]] return;
-    tree[i] += diff * (ir - il);
-    lazy[2 * i] += diff; lazy[2 * i + 1] += diff;
+    if (diff == 0) return;
+    tree[i] = diff * (ir - il);
+    lazy[2 * i] += diff; lazy[2 * i + 1] = diff;
     diff = 0;
   }
 
-  u64 get(const u64 &i, u64 il, u64 ir, u64 ql, u64 qr) {
+  i64 get(const u64 &i, u64 il, u64 ir, u64 ql, u64 qr) {
     if (ql <= il && ir <= qr) {
       push(i, il, ir);
       return tree[i];
@@ -37,13 +37,10 @@ struct sumtree {
 
   void set(const u64 &i, u64 il, u64 ir, u64 ql, u64 qr, const i64 &x) {
     if (ql <= il && ir <= qr) {
-      lazy[i] += x;
-      push(i, il, ir);
+      lazy[i] = x; // push(i, il, ir); ???
       return;
     }
-    if (qr <= il || ir <= ql) {
-      return;
-    }
+    if (qr <= il || ir <= ql) return;
 
     u64 im = (il + ir) / 2;
     push(i, il, ir);
@@ -51,3 +48,16 @@ struct sumtree {
     tree[i] = tree[2 * i] + tree[2 * i + 1];
   }
 };
+
+i64 extended_euclid(i64 a, i64 b, i64 &x, i64 &y) {
+  if (b == 0) {
+    x = 1;
+    y = 0;
+    return a;
+  }
+  i64 x1, y1;
+  i64 g = extended_euclid(b, a % b, x1, y1);
+  x = y1;
+  y = x1 - (a / b) * y1;
+  return g;
+}
