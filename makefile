@@ -1,17 +1,19 @@
 .SILENT:
 
+CXXFLAGS = -Wall -Wextra -Wpedantic -Wno-unqualified-std-cast-call
+
 main:
-	clang++ -DDEBUG -Wall -Wextra -Wpedantic main.cpp
+	clang++ -DDEBUG $(CFALGS) main.cpp
 	./a.out
 
 ndebug:
-	clang++ -Wall -Wextra -Wpedantic main.cpp
+	clang++ $(CFALGS) main.cpp
 	./a.out
 
 dev:
-	clang++ -DDEBUG -Wall -Wextra -Wpedantic dev.cpp
+	clang++ -DDEBUG $(CFALGS) dev.cpp
 	./a.out
 
 dndebug:
-	clang++ -Wall -Wextra -Wpedantic dev.cpp
+	clang++ $(CFALGS) dev.cpp
 	./a.out
