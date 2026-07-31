@@ -3,17 +3,17 @@
 CXXFLAGS = -Wall -Wextra -Wpedantic -Wno-unqualified-std-cast-call
 
 main:
-	clang++ -DDEBUG $(CFALGS) main.cpp
+	clang++ -DDEBUG $(CXXFALGS) main.cpp
 	./a.out
 
 ndebug:
-	clang++ $(CFALGS) main.cpp
+	clang++ $(CXXFALGS) main.cpp
 	./a.out
 
 dev:
-	clang++ -DDEBUG $(CFALGS) dev.cpp
+	clang++ -DDEBUG $(CXXFALGS) dev.cpp
 	./a.out
 
 dndebug:
-	clang++ $(CFALGS) dev.cpp
+	clang++ $(CXXFALGS) dev.cpp
 	./a.out
