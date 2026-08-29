@@ -3,7 +3,6 @@ using namespace std;
 using i64 = int64_t;
 using u64 = uint64_t;
 #define all(x) (x).begin(), (x).end()
-#define run(N) for (int __i = N; __i > 0; --__i) 
 #ifdef DEBUG 
 #define ln endl
 #define print(arr) for (auto &rvi : arr) cout << rvi << ' '; cout << ln;
@@ -18,8 +17,12 @@ using u64 = uint64_t;
 [[maybe_unused]] constexpr int mod = 1e9 + 7;
 
 
-
 int main() {
   ios::sync_with_stdio(false); cin.tie(nullptr);
 
+  int __t;
+  cin >> __t;
+  while (__t--) {
+
+  }
 }

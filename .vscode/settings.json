@@ -1,6 +1,6 @@
 {
   "files.exclude": {
-    ".vscode": false
+    ".vscode": true
   },
   "files.associations": {
     "*.json": "jsonc",
