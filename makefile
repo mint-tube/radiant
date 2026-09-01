@@ -1,20 +1,16 @@
 .SILENT:
+.PHONY: main, dev, gdb
 
 CXX ?= g++
-CXXFLAGS = -Werror -Wall -Wextra -Wpedantic -Wno-unqualified-std-cast-call
+CXXFLAGS = -DDEBUG -ggdb3 -Werror -Wall -Wextra -Wpedantic -Wno-unqualified-std-cast-call
 
 main:
-	$(CXX) -DDEBUG -ggdb3 -fsanitize=address,undefined $(CXXFLAGS) main.cpp
-	./a.out
-
-ndebug:
-	$(CXX) -O1 $(CXXFLAGS) main.cpp
+	$(CXX) $(CXXFLAGS) -fsanitize=address,undefined main.cpp
 	./a.out
 
 dev:
-	$(CXX) -DDEBUG -ggdb3 -fsanitize=address,undefined $(CXXFLAGS) dev.cpp
+	$(CXX) $(CXXFLAGS) -fsanitize=address,undefined dev.cpp
 	./a.out
 
-dndebug:
-	$(CXX) -O1 $(CXXFLAGS) dev.cpp
-	./a.out
+gdb:
+	$(CXX) $(CXXFLAGS) main.cpp
