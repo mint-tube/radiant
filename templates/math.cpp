@@ -2,8 +2,8 @@
 
 i64 binpow(i64 a, i64 b) {
   i64 rv = 1;
-  while (b > 0) {
-    if (b & 1) (rv *= a) % mod;
+  while (b) {
+    if (b & 1) rv = (rv * a) % mod;
     a = (a * a) % mod;
     b >>= 1;
   }
