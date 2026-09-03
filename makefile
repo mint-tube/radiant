@@ -2,7 +2,7 @@
 .PHONY: main, dev, gdb
 
 CXX ?= g++
-CXXFLAGS = -DDEBUG -ggdb3 -Werror -Wall -Wextra -Wpedantic -Wno-unqualified-std-cast-call
+CXXFLAGS = -DDEBUG -ggdb3 -Werror -Wall -Wextra -Wpedantic
 
 main:
 	$(CXX) $(CXXFLAGS) -fsanitize=address,undefined main.cpp
