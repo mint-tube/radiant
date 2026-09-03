@@ -7,7 +7,7 @@ using pii = pair<int, int>;
 template<typename T> istream &operator>>(istream &in, vector<T> &vec) { for (auto &el : vec) in >> el; return in; };
 template<typename T> ostream &operator<<(ostream &out, const vector<T> &vec) { for (const auto &el : vec) out << el << ' '; return out; };
 template<typename T1, typename T2> istream &operator>>(istream &in, vector<pair<T1, T2>> &vec) { for (auto &el : vec) in >> el.first; for (auto &el : vec) in >> el.second; return in; };
-template<typename T1, typename T2> ostream &operator<<(ostream &out, const pair<T1, T2> &p) { out << "{" << p.first << ", " << p.second << "}"; }
+template<typename T1, typename T2> ostream &operator<<(ostream &out, const pair<T1, T2> &p) { return out << "{" << p.first << ", " << p.second << "}"; }
 #define all(arr) (arr).begin(), (arr).end()
 #ifdef DEBUG 
 #define ln endl
