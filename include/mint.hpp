@@ -13,6 +13,8 @@
 #include <set>
 #include <unordered_set>
 #include <deque>
+#include <queue>
+#include <stack>
 #include <bitset>
 #include <utility>
 
@@ -20,6 +22,7 @@
 #include <math.h>
 #include <limits.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define ln std::endl
 

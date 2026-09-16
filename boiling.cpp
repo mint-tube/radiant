@@ -1,14 +1,11 @@
 #ifdef DEBUG 
-#include "include/pch.hpp"
-#define ln std::endl
-template<typename... Args> void log(Args... args) { std::cout << "\x1b[32;1m:\x1b[0m "; ((std::cout << args << ' '), ...); std::cout << std::endl; }
-#define files(...)
+#include "include/mint.hpp"
 #else
 #include <bits/stdc++.h>
 #pragma GCC optimize("O3")
 #define ln '\n'
 #define log(...)
-#define files(name) freopen(name ".in", "r", stdin); freopen(name ".out", "w", stdout)
+#define assert(...)
 #endif
 using namespace std;
 using i64 = int64_t;
