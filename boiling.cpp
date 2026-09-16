@@ -1,7 +1,7 @@
 #ifdef DEBUG 
 #include "include/pch.hpp"
 #define ln std::endl
-#define log(x) std::cout << "\x1b[32;1m:\x1b[0m " << x << ln
+template<typename... Args> void log(Args... args) { std::cout << "\x1b[32;1m:\x1b[0m "; ((std::cout << args << ' '), ...); std::cout << std::endl; }
 #define files(...)
 #else
 #include <bits/stdc++.h>
