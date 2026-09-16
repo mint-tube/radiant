@@ -1,4 +1,15 @@
+#ifdef DEBUG 
+#include "include/pch.hpp"
+#define ln std::endl
+#define log(x) std::cout << "\x1b[32;1m:\x1b[0m " << x << ln
+#define files(...)
+#else
 #include <bits/stdc++.h>
+#pragma GCC optimize("O3")
+#define ln '\n'
+#define log(...)
+#define files(name) freopen(name ".in", "r", stdin); freopen(name ".out", "w", stdout)
+#endif
 using namespace std;
 using i64 = int64_t;
 using u64 = uint64_t;
@@ -9,16 +20,7 @@ template<typename T> ostream &operator<<(ostream &out, const vector<T> &vec) { f
 template<typename T1, typename T2> istream &operator>>(istream &in, vector<pair<T1, T2>> &vec) { for (auto &el : vec) in >> el.first; for (auto &el : vec) in >> el.second; return in; };
 template<typename T1, typename T2> ostream &operator<<(ostream &out, const pair<T1, T2> &p) { return out << "{" << p.first << ", " << p.second << "}"; }
 #define all(arr) (arr).begin(), (arr).end()
-#ifdef DEBUG 
-#define ln endl
-#define log(x) cout << "\x1b[32;1m:\x1b[0m " << x << ln
-#define files(...)
-#else
-#pragma GCC optimize("fast")
-#define ln '\n'
-#define log(...)
-#define files(name) freopen(name ".in", "r", stdin); freopen(name ".out", "w", stdout)
-#endif
+#define rall(arr) (arr).rbegin(), (arr).rend()
 [[maybe_unused]] constexpr int mod = 1e9 + 7;
 
 

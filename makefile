@@ -3,13 +3,14 @@
 
 CXX ?= g++
 CXXFLAGS = --std=c++20 -DDEBUG -ggdb3 -Werror -Wall -Wextra -Wpedantic
+SANITIZE = -fsanitize=address,undefined
 
 main:
-	$(CXX) $(CXXFLAGS) -fsanitize=address,undefined main.cpp
+	$(CXX) $(CXXFLAGS) $(SANITIZE) main.cpp
 	./a.out
 
 dev:
-	$(CXX) $(CXXFLAGS) -fsanitize=address,undefined dev.cpp
+	$(CXX) $(CXXFLAGS) $(SANITIZE) dev.cpp
 	./a.out
 
 gdb:
