@@ -2,7 +2,7 @@
 .PHONY: main, dev, gdb
 
 CXX ?= g++
-CXXFLAGS = --std=c++20 -DDEBUG -ggdb3 -Werror -Wall -Wextra -Wpedantic
+CXXFLAGS = --std=c++20 -DDEBUG -ggdb3 -Werror -Wall -Wextra -Wpedantic -Wshadow
 SANITIZE = -fsanitize=address,undefined
 
 main:
