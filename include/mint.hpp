@@ -24,6 +24,9 @@
 #include <string.h>
 #include <stdlib.h>
 
+template<typename T1, typename T2> std::ostream &operator<<(std::ostream &out, const std::pair<T1, T2> &p) { return out << "{" << p.first << ", " << p.second << "}"; }
+template<typename T> std::ostream &operator<<(std::ostream &out, const std::vector<T> &vec) { for (const auto &el : vec) out << el << ' '; return out; };
+
 #define ln std::endl
 
 template<typename... Args> void log(Args... args) { std::cout << "\x1b[32;1m:\x1b[0m "; ((std::cout << args << ' '), ...); std::cout << std::endl; }
@@ -34,4 +37,4 @@ inline void __assert_impl(bool ok, const char *expr, std::source_location loc = 
     abort();
   }
 }
-#define assert(expr) __assert_impl(bool(expr), #expr)
+#define asrt(expr) __assert_impl(bool(expr), #expr)
