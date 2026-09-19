@@ -27,7 +27,7 @@ template<typename T> std::ostream &operator<<(std::ostream &out, const std::vect
 
 #define ln std::endl
 
-template<typename... Args> void log(Args... args) {
+void log(auto... args) {
   std::cout << "\x1b[32;1m:\x1b[0m ";
   ((std::cout << args), ...);
   std::cout << std::endl;
