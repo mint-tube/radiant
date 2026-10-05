@@ -1,11 +1,11 @@
 .SILENT:
-.PHONY: main, dev, gdb
+.PHONY: run, drun, fast, dfast, gdb, dgdb
 
 CXX      ?= g++
-CXXFLAGS = --std=c++20 -Werror -Wall -Wextra -Wpedantic -pipe
+CXXFLAGS = -std=c++20 -Werror -Wall -Wextra -Wpedantic -pipe
 DEBUG    = -DDEBUG -ggdb3 -fomit-frame-pointer
 FAST     = -O3
-SANITIZE = -fsanitize=address,undefined -D_GLIBCXX_DEBUG
+SANITIZE = -fsanitize=address,undefined #-D_GLIBCXX_DEBUG
 
 run:
 	$(CXX) $(CXXFLAGS) $(DEBUG) $(SANITIZE) main.cpp

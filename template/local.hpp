@@ -39,4 +39,4 @@ inline void _asrt_impl(bool ok, const char *expr, std::source_location loc = std
     abort();
   }
 }
-#define asrt(expr) __asrt_impl(bool(expr), #expr)
+#define asrt(expr) _asrt_impl(bool(expr), #expr)
