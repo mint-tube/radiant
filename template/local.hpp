@@ -15,6 +15,7 @@
 #include <deque>
 #include <bitset>
 #include <utility>
+#include <concepts>
 
 #include <stdint.h>
 #include <math.h>
@@ -22,8 +23,34 @@
 #include <string.h>
 #include <stdlib.h>
 
-template<typename T1, typename T2> std::ostream &operator<<(std::ostream &out, const std::pair<T1, T2> &p) { return out << "{" << p.first << ", " << p.second << "}"; }
-template<typename T> std::ostream &operator<<(std::ostream &out, const std::vector<T> &vec) { for (const auto &el : vec) out << el << ' '; return out; };
+template<typename T>
+concept MapLike = requires {
+  typename T::key_type;
+  typename T::mapped_type;
+};
+
+template<typename T>
+concept SetLike = requires {
+  typename T::key_type;
+} && !MapLike<T>;
+
+template<MapLike M> std::ostream &operator<<(std::ostream &out, const M &m) {
+  if (m.empty()) return out << "{}";
+  out << '{';
+  for (const auto &[k, v] : m) out << k << ": " << v << ", ";
+  return out << "\b\b}";
+}
+
+template<SetLike S> std::ostream &operator<<(std::ostream &out, const S &s) {
+  if (s.empty()) return out << "{}";
+  out << '{';
+  for (const auto el : s) out << el << ", ";
+  return out << "\b\b}";
+}
+
+template<typename T1, typename T2> std::ostream &operator<<(std::ostream &out, const std::pair<T1, T2> &p) {
+  return out << "{" << p.first << ", " << p.second << "}";
+}
 
 #define ln std::endl
 
