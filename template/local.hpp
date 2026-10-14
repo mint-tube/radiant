@@ -24,24 +24,24 @@
 #include <stdlib.h>
 
 template<typename T>
-concept MapLike = requires {
+concept map_like = requires {
   typename T::key_type;
   typename T::mapped_type;
 };
 
 template<typename T>
-concept SetLike = requires {
+concept set_like = requires {
   typename T::key_type;
-} && !MapLike<T>;
+} && !map_like<T>;
 
-template<MapLike M> std::ostream &operator<<(std::ostream &out, const M &m) {
+template<map_like M> std::ostream &operator<<(std::ostream &out, const M &m) {
   if (m.empty()) return out << "{}";
   out << '{';
   for (const auto &[k, v] : m) out << k << ": " << v << ", ";
   return out << "\b\b}";
 }
 
-template<SetLike S> std::ostream &operator<<(std::ostream &out, const S &s) {
+template<set_like S> std::ostream &operator<<(std::ostream &out, const S &s) {
   if (s.empty()) return out << "{}";
   out << '{';
   for (const auto el : s) out << el << ", ";
@@ -54,7 +54,7 @@ template<typename T1, typename T2> std::ostream &operator<<(std::ostream &out, c
 
 #define ln std::endl
 
-void log(auto... args) {
+void lg(auto... args) {
   std::cout << "\x1b[32;1m:\x1b[0m ";
   ((std::cout << args), ...);
   std::cout << std::endl;
@@ -62,7 +62,7 @@ void log(auto... args) {
 
 inline void _asrt_impl(bool ok, const char *expr, std::source_location loc = std::source_location::current()) {
   if (!ok) {
-    std::cerr << "\x1b[31;1mAssertion failed:\x1b[0m " << expr << "\n-- " << loc.file_name() << ":" << loc.line() << "\n";
+    std::cerr << "\x1b[31;1mAssertion failed:\x1b[0m " << expr << "\nat " << loc.file_name() << ":" << loc.line() << "\n";
     abort();
   }
 }

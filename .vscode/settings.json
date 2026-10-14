@@ -4,5 +4,8 @@
     ".git": true,
     ".gitignore": true,
     "a.out": true
-  }
+  },
+  "C_Cpp.default.defines": [
+    "DEBUG"
+  ]
 }
