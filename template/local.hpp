@@ -34,6 +34,10 @@ concept set_like = requires {
   typename T::key_type;
 } && !map_like<T>;
 
+template<typename T> std::ostream &operator<<(std::ostream &out, const std::vector<T> &vec);
+template<typename T1, typename T2> std::ostream &operator<<(std::ostream &out, const std::pair<T1, T2> &p);
+template<set_like S> std::ostream &operator<<(std::ostream &out, const S &s);
+
 template<map_like M> std::ostream &operator<<(std::ostream &out, const M &m) {
   if (m.empty()) return out << "{}";
   out << '{';
@@ -51,6 +55,11 @@ template<set_like S> std::ostream &operator<<(std::ostream &out, const S &s) {
 template<typename T1, typename T2> std::ostream &operator<<(std::ostream &out, const std::pair<T1, T2> &p) {
   return out << "{" << p.first << ", " << p.second << "}";
 }
+
+template<typename T> std::ostream &operator<<(std::ostream &out, const std::vector<T> &vec) {
+  for (const auto &el : vec) out << el << ' '; out << '\b'; return out;
+};
+
 
 #define ln std::endl
 
