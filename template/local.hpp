@@ -56,10 +56,6 @@ template<typename T1, typename T2> std::ostream &operator<<(std::ostream &out, c
   return out << "{" << p.first << ", " << p.second << "}";
 }
 
-template<typename T> std::ostream &operator<<(std::ostream &out, const std::vector<T> &vec) {
-  for (const auto &el : vec) out << el << ' '; out << '\b'; return out;
-};
-
 
 #define ln std::endl
 
