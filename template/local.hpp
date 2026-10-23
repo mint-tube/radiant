@@ -39,21 +39,27 @@ template<typename T1, typename T2> std::ostream &operator<<(std::ostream &out, c
 template<set_like S> std::ostream &operator<<(std::ostream &out, const S &s);
 
 template<map_like M> std::ostream &operator<<(std::ostream &out, const M &m) {
-  if (m.empty()) return out << "{}";
   out << '{';
-  for (const auto &[k, v] : m) out << k << ": " << v << ", ";
-  return out << "\b\b}";
+  bool first = true;
+  for (const auto &[k, v] : m) {
+    if (!first) out << ", ", first = false;
+    out << k << ": " << v;
+  }
+  return out << '}';
 }
 
 template<set_like S> std::ostream &operator<<(std::ostream &out, const S &s) {
-  if (s.empty()) return out << "{}";
   out << '{';
-  for (const auto el : s) out << el << ", ";
-  return out << "\b\b}";
+  bool first = true;
+  for (const auto &el : s) {
+    if (!first) out << ", ", first = false;
+    out << el;
+  }
+  return out << '}';
 }
 
 template<typename T1, typename T2> std::ostream &operator<<(std::ostream &out, const std::pair<T1, T2> &p) {
-  return out << "{" << p.first << ", " << p.second << "}";
+  return out << '{' << p.first << ", " << p.second << '}';
 }
 
 
@@ -71,4 +77,4 @@ inline void _asrt_impl(bool ok, const char *expr, std::source_location loc = std
     abort();
   }
 }
-#define asrt(expr) _asrt_impl(bool(expr), #expr)
+#define asrt(...) _asrt_impl(bool(__VA_ARGS__), #__VA_ARGS__)

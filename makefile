@@ -1,9 +1,9 @@
 .SILENT:
-.PHONY: run, drun, fast, dfast, gdb, dgdb
+.PHONY: run drun fast dfast gdb dgdb
 
 CXX      ?= g++
-CXXFLAGS = -std=c++20 -Werror -Wall -Wextra -Wpedantic -Wno-sign-compare -pipe
-DEBUG    = -DDEBUG -ggdb3 -fomit-frame-pointer
+CXXFLAGS = -std=c++20 -Werror -Wall -Wextra -Wpedantic -Wno-sign-compare -Wshadow -pipe
+DEBUG    = -DDEBUG -ggdb3
 FAST     = -O3
 SANITIZE = -fsanitize=address,undefined #-D_GLIBCXX_DEBUG
 
@@ -16,15 +16,15 @@ drun:
 	./a.out
 
 fast:
-	$(CXX) $(CXXFLAGS) $(FAST) $(SANITIZE) main.cpp
+	$(CXX) $(CXXFLAGS) $(FAST) main.cpp
 	./a.out
 
 dfast:
-	$(CXX) $(CXXFLAGS) $(FAST) $(SANITIZE) dev.cpp
+	$(CXX) $(CXXFLAGS) $(FAST) dev.cpp
 	./a.out
 
 gdb:
 	$(CXX) $(CXXFLAGS) $(DEBUG) main.cpp
 
-dgbd:
-	$(CXX) $(CXXFLAGS) $(DEBUG) main.cpp
+dgdb:
+	$(CXX) $(CXXFLAGS) $(DEBUG) dev.cpp
