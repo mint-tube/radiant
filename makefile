@@ -2,7 +2,7 @@
 .PHONY: run drun fast dfast gdb dgdb
 
 CXX      ?= g++
-CXXFLAGS = -std=c++20 -Werror -Wall -Wextra -Wpedantic -Wno-sign-compare -Wshadow -pipe
+CXXFLAGS = -std=c++23 -Werror -Wall -Wextra -Wpedantic -Wno-sign-compare -Wshadow -pipe
 DEBUG    = -DDEBUG -ggdb3
 FAST     = -O3
 SANITIZE = -fsanitize=address,undefined #-D_GLIBCXX_DEBUG

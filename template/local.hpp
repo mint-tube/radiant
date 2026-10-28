@@ -42,7 +42,8 @@ template<map_like M> std::ostream &operator<<(std::ostream &out, const M &m) {
   out << '{';
   bool first = true;
   for (const auto &[k, v] : m) {
-    if (!first) out << ", ", first = false;
+    if (!first) out << ", ";
+    else first = false;
     out << k << ": " << v;
   }
   return out << '}';
@@ -52,7 +53,8 @@ template<set_like S> std::ostream &operator<<(std::ostream &out, const S &s) {
   out << '{';
   bool first = true;
   for (const auto &el : s) {
-    if (!first) out << ", ", first = false;
+    if (!first) out << ", ";
+    else first = false;
     out << el;
   }
   return out << '}';
