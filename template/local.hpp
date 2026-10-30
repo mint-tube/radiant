@@ -13,6 +13,7 @@
 #include <set>
 #include <unordered_set>
 #include <deque>
+#include <queue>
 #include <bitset>
 #include <utility>
 #include <concepts>

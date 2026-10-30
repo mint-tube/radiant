@@ -20,7 +20,9 @@ using pll = pair<ll, ll>;
 #define rall(arr) (arr).rbegin(), (arr).rend()
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 #define rep1(i, n) for (int i = 1; i <= (n); ++i)
-[[maybe_unused]] constexpr int mod = 1e9 + 7;
+[[maybe_unused]] constexpr int MOD = 1000000007;
+[[maybe_unused]] constexpr int INF = INT32_MAX / 2;
+[[maybe_unused]] constexpr ll INFL = INT64_MAX / 3;
 
 
 int main() {
