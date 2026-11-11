@@ -17,6 +17,7 @@
 #include <bitset>
 #include <utility>
 #include <concepts>
+#include <functional>
 
 #include <stdint.h>
 #include <math.h>
