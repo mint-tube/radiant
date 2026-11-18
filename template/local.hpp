@@ -37,6 +37,8 @@ concept set_like = requires {
 } && !map_like<T>;
 
 template<typename T> std::ostream &operator<<(std::ostream &out, const std::vector<T> &vec);
+template<typename T> std::istream &operator>>(std::istream &in, std::vector<T> &vec);
+template<typename T, size_t N> std::ostream &operator<<(std::ostream &out, const std::array<T, N> &vec);
 template<typename T1, typename T2> std::ostream &operator<<(std::ostream &out, const std::pair<T1, T2> &p);
 template<set_like S> std::ostream &operator<<(std::ostream &out, const S &s);
 
@@ -82,3 +84,4 @@ inline void _asrt_impl(bool ok, const char *expr, std::source_location loc = std
   }
 }
 #define asrt(...) _asrt_impl(bool(__VA_ARGS__), #__VA_ARGS__)
+#define files(...)
